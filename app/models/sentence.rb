@@ -15,7 +15,7 @@ class Sentence < ActiveRecord::Base
 
   def periodizerer
     self.content.capitalize!
-    if self.content[-1] != "."
+    if !self.content[-1].match(/[?!.]/)
       self.content += "."
     end
   end

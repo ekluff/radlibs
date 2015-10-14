@@ -1,4 +1,6 @@
-<% if @sentence.errors.any? %>
+<!-- Put into flash alerts in sentences controller -->
+
+<!-- <% if @sentence.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(@sentence.errors.count, "error") %> prohibited this sentence from being saved:</h2>
 
@@ -8,7 +10,7 @@
     <% end %>
   </ul>
 </div>
-<% end %>
+<% end %> -->
 
 <%= form_for [@story, @sentence], html: { multipart: true } do |f| %>
   <%= f.file_field :asset %>

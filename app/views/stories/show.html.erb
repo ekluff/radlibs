@@ -10,17 +10,23 @@
   <% end %>
 
   <!-- <%= image_tag @story.sentences.last.asset.url %> -->
+  <br>
+  <br>
+  <br>
+  <p>Add to the story!<p>
+    <%= render "sentences/form" %>
+  <br>
+  <br>
+  <br>
 
 <% else %>
   <p>
     This lib needs more rad. Write the first sentence:
   </p>
+  <%= render "sentences/form" %>
 <% end %>
-<br>
-<br>
-<br>
-<p>Add to the story!<p>
-<%= render "sentences/form" %>
-<br>
-<br>
-<br>
+
+
+<p><%= link_to "Delete", story_path(@story),
+:data => {:confirm => "You sure?",
+  :method => "delete"} %></p>

@@ -4,6 +4,10 @@ class StoriesController < ApplicationController
     @story = Story.new
   end
 
+  def index
+    @stories = Story.all
+  end
+
   def create
     @story = Story.new(story_params)
     if @story.save
@@ -18,6 +22,12 @@ class StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
     @sentence = Sentence.new
+  end
+
+  def destroy
+    @story = Story.find(params[:id])
+    @story.destroy
+    redirect_to stories_path
   end
 
   private
