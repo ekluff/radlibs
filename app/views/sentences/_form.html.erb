@@ -1,4 +1,5 @@
-<%= form_for [@story, @sentence] do |f| %>
+<%= form_for [@story, @sentence], html: { multipart: true } do |f| %>
+  <%= f.file_field :asset %>
   <%= f.text_field :content %>
   <%= f.submit %>
 <% end %>

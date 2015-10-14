@@ -2,8 +2,12 @@
 
 <% if @story.sentences.any? %>
   <% @story.sentences.each do |sentence| %>
+    <%= image_tag sentence.asset.url %>
     <%= sentence.content %>
   <% end %>
+
+  <!-- <%= image_tag @story.sentences.last.asset.url %> -->
+
 <% else %>
   <p>
     This lib needs more rad. Write the first sentence:
