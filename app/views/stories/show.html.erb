@@ -2,8 +2,11 @@
 
 <% if @story.sentences.any? %>
   <% @story.sentences.each do |sentence| %>
-    <%= image_tag sentence.asset.url %>
     <%= sentence.content %>
+    <br>
+    <br>
+    <br>
+    <div class="image"><%= image_tag sentence.asset.url %></div>
   <% end %>
 
   <!-- <%= image_tag @story.sentences.last.asset.url %> -->
@@ -13,4 +16,11 @@
     This lib needs more rad. Write the first sentence:
   </p>
 <% end %>
+<br>
+<br>
+<br>
+<p>Add to the story!<p>
 <%= render "sentences/form" %>
+<br>
+<br>
+<br>

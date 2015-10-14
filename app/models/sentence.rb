@@ -8,6 +8,8 @@ class Sentence < ActiveRecord::Base
   after_validation :periodizerer
 
   validates :content, presence:true
+  validates :asset, presence:true
+
 
   private
 

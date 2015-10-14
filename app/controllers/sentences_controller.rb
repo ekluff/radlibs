@@ -7,7 +7,9 @@ class SentencesController < ApplicationController
       flash[:notice] = "This lib is one sentence radder."
       redirect_to story_path(@story)
     else
-      flash[:alert] = "You'll learn to write sentences one day. Perhaps try again?"
+      string = ""
+      @sentence.errors.full_messages.each { |msg| string += msg + ". " }
+      flash[:alert] = "#{string}"
       redirect_to story_path(@story)
     end
   end
