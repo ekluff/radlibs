@@ -1,5 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Sentence, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Sentence do
+  it { should validate_presence_of :content }
+  it { should belong_to :story }
+  it { should belong_to :user }
 end

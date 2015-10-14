@@ -1,5 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Story, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Story do
+  it { should belong_to :user }
+  it { should have_many :sentences }
 end
