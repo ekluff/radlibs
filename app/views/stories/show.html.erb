@@ -1,9 +1,13 @@
 <h1><%= @story.title %></h1>
+<h4>Created by <%= @user.username %></h4>
+
+<%= image_tag @story.asset.url(:medium) %>
 
 <% if @story.sentences.any? %>
   <% @story.sentences.each do |sentence| %>
     <%= sentence.content %>
     <br>
+    created by <%= sentence.user.username %>
     <br>
     <br>
     <div class="image"><%= image_tag sentence.asset.url %></div>

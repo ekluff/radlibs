@@ -1,8 +1,10 @@
 class SentencesController < ApplicationController
 
   def create
+    @user = current_user
     @story = Story.find(params[:story_id])
     @sentence = @story.sentences.new(sentence_params)
+    @sentence.user = @user
     if @sentence.save
       flash[:notice] = "This lib is one sentence radder."
       redirect_to story_path(@story)

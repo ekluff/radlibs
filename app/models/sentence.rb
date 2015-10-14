@@ -10,7 +10,6 @@ class Sentence < ActiveRecord::Base
   validates :content, presence:true
   validates :asset, presence:true
 
-
   private
 
   def periodizerer
@@ -19,4 +18,5 @@ class Sentence < ActiveRecord::Base
       self.content += "."
     end
   end
+
 end

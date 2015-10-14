@@ -1,6 +1,7 @@
 class StoriesController < ApplicationController
 
   def new
+    @user = current_user
     @story = Story.new
   end
 
@@ -9,7 +10,8 @@ class StoriesController < ApplicationController
   end
 
   def create
-    @story = Story.new(story_params)
+    @user = current_user
+    @story = @user.stories.new(story_params)
     if @story.save
       flash[:notice] = "Story created to great success. You are so creative. You should start that novel you've been thinking about. Did you know you can self publish now?"
       redirect_to story_path(@story)
@@ -21,6 +23,7 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
+    @user = @story.user
     @sentence = Sentence.new
   end
 
@@ -33,7 +36,7 @@ class StoriesController < ApplicationController
   private
 
   def story_params
-    params.require(:story).permit(:title)
+    params.require(:story).permit(:title, :asset)
   end
 
 end
