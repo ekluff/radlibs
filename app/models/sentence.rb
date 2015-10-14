@@ -5,5 +5,16 @@ class Sentence < ActiveRecord::Base
   belongs_to :user
   belongs_to :story
 
+  after_validation :periodizerer
+
   validates :content, presence:true
+
+  private
+
+  def periodizerer
+    self.content.capitalize!
+    if self.content[-1] != "."
+      self.content += "."
+    end
+  end
 end
