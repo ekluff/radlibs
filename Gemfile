@@ -3,11 +3,12 @@ source 'https://rubygems.org'
 gem 'rails'
 gem 'pg'
 gem 'sass-rails'
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap-sass'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'devise'
 
 group :development do
   gem 'byebug'
