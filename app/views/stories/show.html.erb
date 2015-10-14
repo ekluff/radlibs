@@ -17,8 +17,10 @@
   <br>
   <br>
   <br>
-  <p>Add to the story!<p>
+  <% if user_signed_in? %>
+    <p>Add to the story!<p>
     <%= render "sentences/form" %>
+  <% end %>
   <br>
   <br>
   <br>
@@ -27,10 +29,13 @@
   <p>
     This lib needs more rad. Write the first sentence:
   </p>
-  <%= render "sentences/form" %>
+  <% if user_signed_in? %>
+    <%= render "sentences/form" %>
+  <% end %>
 <% end %>
 
-
-<p><%= link_to "Delete", story_path(@story),
-:data => {:confirm => "You sure?",
-  :method => "delete"} %></p>
+<% if current_user == @story.user %>
+  <p><%= link_to "Delete", story_path(@story),
+  :data => {:confirm => "You sure?",
+    :method => "delete"} %></p>
+<% end %>
