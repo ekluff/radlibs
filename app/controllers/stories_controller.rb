@@ -17,6 +17,7 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
+    @sentence = Sentence.new
   end
 
   private

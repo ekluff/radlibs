@@ -1,1 +1,13 @@
-<h1>hello world</h1>
+<h1>welcome to radLibs</h1>
+<h4>the raddest of the libs</h4>
+
+<% if @stories.any? %>
+<h3>latest radLibs</h3>
+  <ul class="list list-unstyled">
+    <% @stories.each do |story| %>
+      <li>
+        <%= link_to story.title, story_path(story) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
