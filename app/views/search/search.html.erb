@@ -1,0 +1,35 @@
+<h1>Search</h1>
+
+<%= form_for search_path, method: :get do |f| %>
+<p>
+  <%= f.label "Search for" %>
+  <%= text_field_tag :q, params[:q] %>
+  <%= submit_tag "Go", name: nil %>
+</p>
+<% end %>
+
+<ul>
+  <h3>Story Results</h3>
+  <hr>
+  <% @stories.each do |story| %>
+  <li>
+    <h3>
+      <%= link_to story.title, controller: "stories", action: "show", id: story._id%>
+    </h3>
+  </li>
+  <% end %>
+</ul>
+<br>
+<br>
+
+<ul>
+  <h3>Sentence Results</h3>
+  <hr>
+  <% @sentences.each do |sentence| %>
+  <li>
+    <h3>
+      <%= link_to sentence.content, controller: "stories", action: "show", id: sentence.story_id%>
+    </h3>
+  </li>
+  <% end %>
+</ul>

@@ -1,5 +1,7 @@
 class StoriesController < ApplicationController
 
+  enable_sync only: [:create, :update, :destroy]
+
   def new
     @user = current_user
     @story = Story.new

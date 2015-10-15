@@ -1,5 +1,7 @@
 class SentencesController < ApplicationController
 
+  enable_sync only: [:create, :update, :destroy]
+
   def create
     @user = current_user
     @story = Story.find(params[:story_id])

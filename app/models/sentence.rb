@@ -1,4 +1,9 @@
+require 'elasticsearch/model'
+
 class Sentence < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   has_attached_file :asset, styles: { large: "500x500>", medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :asset, content_type: /\Aimage\/.*\Z/
 
@@ -10,6 +15,8 @@ class Sentence < ActiveRecord::Base
   validates :content, presence:true
   validates :asset, presence:true
 
+  sync :all
+
   private
 
   def periodizerer
@@ -20,3 +27,5 @@ class Sentence < ActiveRecord::Base
   end
 
 end
+
+Sentence.import force: true # for auto sync model with elastic search
